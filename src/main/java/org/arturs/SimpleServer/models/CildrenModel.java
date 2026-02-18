@@ -1,5 +1,7 @@
 package org.arturs.SimpleServer.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -16,13 +18,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "kids")
-public class Kids {
+public class CildrenModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String childName;
     private int age;
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     private UserModel userModel;
 
